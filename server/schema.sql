@@ -34,6 +34,7 @@ CREATE TABLE users (
 );
 
 
+INSERT INTO rooms (name) VALUES('lounge');
 
 
 /*  Execute this file from the command line by typing:
