@@ -1,0 +1,179 @@
+body {
+    background: #fff;
+    text-align: center;
+    font-family: 'Helvetica Neue', Helvetica, arial, sans-serif;
+    margin: 0;
+}
+
+.container {
+    width: 95%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+header {
+    background: gainsboro;
+    padding: 3em;
+    padding-bottom: 1em;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header h1 a {
+
+    color: #333;
+    text-decoration: none;
+    font-weight: 100;
+    font-family: Helvetica Neue;
+    font-size: 1.5em;
+
+}
+
+form {
+    margin-top: 3em;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+form textarea {
+    width: 70%;
+    font-size: 1em;
+    height: 4em;
+    font-weight: 300;
+    padding: .5em;
+    resize: none;
+    border: none;
+    border-radius: 5px;
+    box-shadow: inset 0 0 1px #ccc;
+    border: 1px solid transparent;
+    transition: 200ms;
+}
+
+form textarea:focus {
+    outline: none;
+    border: 1px solid #333;
+}
+
+.submit {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    color: #fff;
+    background: turquoise;
+    border: none;
+    font-size: 0.8em;
+    padding: 0.5em 1em;
+    border-radius: 3px;
+    margin-top: 1em;
+    cursor: pointer;
+}
+.controls {
+    text-align: center;
+}
+#roomSelect,
+.controls .container button {
+    display: inline-block;
+}
+.chat {
+    padding: 5px;
+    margin-bottom: 5px;
+    background-color: #eee;
+}
+
+.chat .username {
+    font-weight: 800;
+}
+
+.chat:hover {
+    background-color: #ddd;
+}
+
+.spinner {
+    float: right;
+    height: 46px;
+    margin-bottom: 5px;
+}
+
+.spinner img {
+    padding: 10px;
+}
+
+.modal-container,
+.modal-container .overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 0.3s;
+}
+
+.modal-container {
+    visibility: hidden;
+    opacity: 0;
+}
+.modal-container.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-container .overlay {
+    background-color: black;
+    opacity: 0.6;
+}
+
+.modal-inner {
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    margin: auto;
+    height: 25%;
+    width: 35%;
+    background-color: white;
+    z-index: 1;
+    border-radius: 3px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+}
+
+.message {
+    margin: 2em;
+    padding: 1em;
+    font-weight: 300;
+    background: whitesmoke;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.message-body {
+    text-align: justify;
+    padding: 1em;
+    font-size: 1.4em;
+    display: inline-block;
+}
+
+.message-body:before,
+.message-body:after {
+    display: inline-block;
+    content: '"';
+}
+
+.message .username {
+    font-weight: 500;
+}
+
+.message .username,
+.message-room {
+    display: inline-block;
+    margin: 0 0.25em;
+}
+
+.message .time {
+    text-align: right;
+    color: #aaa;
+    font-size: 0.8em;
+}
