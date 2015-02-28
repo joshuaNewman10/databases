@@ -35,7 +35,7 @@ CREATE TABLE users (
 
 
 INSERT INTO rooms (name) VALUES('lounge');
-
+INSERT INTO users (name) VALUES('anon');
 
 /*  Execute this file from the command line by typing:
  *    mysql -u root < server/schema.sql
