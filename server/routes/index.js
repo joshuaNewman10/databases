@@ -3,24 +3,24 @@ var serveStatic = require('serve-static');
 var router = express.Router();
 var app = express();
 var Promise = require('bluebird');
+var path = require('path');
 
 var fs = require('fs');
 var bodyParser = require('body-parser');
 
-var db = Promise.promisifyAll(require('Helpers/mysqlHelpers'));
+var db = Promise.promisifyAll(require('../Helpers/mysqlHelpers'));
 
 app.use(bodyParser.json());
 
-router.options('/classes/messages', function(req, res, next) {
+router.options('/messages', function(req, res, next) {
   res.status(200);
   res.send();
 });
 
 /* GET home page. */
-router.use('/', serveStatic('public/www', {'index': ['index.html', 'index.htm']}));
 
 //Get rooms
-router.get('/classes/rooms', function(req, res, next) {
+router.get('/rooms', function(req, res, next) {
    var data = {};
 
    db.getRooms()
@@ -31,7 +31,7 @@ router.get('/classes/rooms', function(req, res, next) {
 });
 
 // Get log
-router.get('/classes/messages', function(req, res, next) {
+router.get('/messages', function(req, res, next) {
   var data = {};
 
   db.getMessages()
@@ -42,7 +42,7 @@ router.get('/classes/messages', function(req, res, next) {
 });
 
 // Get log descending
-router.get('/classes/messages/sortby/date/ascending', function(req, res, next) {
+router.get('/messages/sortby/date/ascending', function(req, res, next) {
   var data = {};
   readLog(function(log) {
     data.results = log.messages.sort(function(a,b) {
@@ -58,7 +58,7 @@ router.get('/arglebargle', function(req, res, next) {
 });
 
 // create a user or return an id
-router.post('/classes/users', function(req, res, next) {
+router.post('/users', function(req, res, next) {
   var data = {};
   var name = req.body.name;
   db.createUser(name)
@@ -69,7 +69,7 @@ router.post('/classes/users', function(req, res, next) {
   });
 });
 
-router.post('/classes/rooms', function(req, res, next) {
+router.post('/rooms', function(req, res, next) {
   var data = {};
   var roomName = req.body.name;
   db.createRoom(roomName)
@@ -81,7 +81,7 @@ router.post('/classes/rooms', function(req, res, next) {
 });
 
 // POST message
-router.post('/classes/messages', function( req, res, next ) {
+router.post('/messages', function( req, res, next ) {
   var data = {};
   var text = req.body.text;
   var roomId = req.body.roomId;

@@ -28,7 +28,8 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use('/', routes);
+app.use('/', serveStatic(path.join(__dirname, 'public/www'), {'index': ['index.html', 'index.htm']}));
+app.use('/classes', routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
